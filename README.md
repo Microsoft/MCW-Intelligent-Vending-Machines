@@ -2,6 +2,8 @@
 
 [Download Cloud Workshop](https://github.com/Microsoft/MCW-Intelligent-Vending-Machines/archive/master.zip)
 
+Trey Research Inc. looks at the old way of doing things in retail and introduces innovative experiences that delight customers and drive sales. Their latest initiative focuses on intelligent vending machines that support commerce, engagement analytics, and intelligent promotions.
+
 ## Target Audience
 
 * Application developer
@@ -24,6 +26,7 @@ Explore an IoT solution for intelligent vending machines, leveraging facial feat
 * R Server cluster on HDInsight
 * R Tools for Visual Studio 2017
 * Visual Studio 2017
+* Windows Subsystem for Linux (WSL)
 
 ## Azure Solution
 
