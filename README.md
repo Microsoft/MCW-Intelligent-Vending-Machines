@@ -1,14 +1,34 @@
+# Intelligent Vending Machines
 
-# Contributing
+[Download Cloud Workshop](https://github.com/Microsoft/MCW-Intelligent-Vending-Machines/archive/master.zip)
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
+## Target Audience
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+* Application developer
+* AI Developer
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Abstract
+
+Explore an IoT solution for intelligent vending machines, leveraging facial feature recognition and Azure Machine Learning, to gain a better understanding of building cloud-based machine learning apps and real-time analytics with SQL Database in-memory and columnar indexing.
+
+## Azure Services and Related Products
+
+* Azure App Services
+* Azure Blob Storage
+* Azure SQL Database
+* Cognitive Services Face API
+* Data Lake Store
+* IoT Hub
+* Microsoft Machine Learning Server
+* Power BI Desktop
+* R Server cluster on HDInsight
+* R Tools for Visual Studio 2017
+* Visual Studio 2017
+
+## Azure Solution
+
+Download the [Vending Machines](http://bit.ly/2w6t2qz) starter project.
+
+## Related References
+
+[MCW](https://github.com/Microsoft/MCW)
