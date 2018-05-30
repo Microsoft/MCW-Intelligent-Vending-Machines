@@ -11,15 +11,16 @@ Expand-Archive ~/Ubuntu.zip ~/Ubuntu
 #Install Chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
+#Install Visual Studio Community 2017 with packages
+choco install 'visualstudio2017community --add Microsoft.VisualStudio.Workload.DataScience --add Microsoft.VisualStudio.Workload.Azure --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.NetWeb --includeRecommended --quiet --norestart'
+
 #Assign Packages to Install
 $Packages = 'googlechrome',`
-            'powerbi',`
-            'visualstudio2017community',`
-            'visualstudio2017-workload-azure',`
-            'visualstudio2017-workload-manageddesktop',`
-            'visualstudio2017-workload-netweb',`
-            'visualstudio2017-workload-data',`
-            'dotnetcore-sdk'
+            'powerbi'
+#            'visualstudio2017-workload-azure',`
+#            'visualstudio2017-workload-manageddesktop',`
+#            'visualstudio2017-workload-netweb',`
+#            'dotnetcore-sdk'
 
 #Install Packages
 ForEach ($PackageName in $Packages)
