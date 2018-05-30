@@ -575,7 +575,7 @@
             "name": "[variables('databaseServerNameUnique')]",
             "properties": {
                 "administratorLogin": "[parameters('databaseUsername')]",
-                "administratorLoginPassword": "[parameters('databsePassword')]",
+                "administratorLoginPassword": "[parameters('databasePassword')]",
                 "version": "12.0"
             },
             "resources": [
