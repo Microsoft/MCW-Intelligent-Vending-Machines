@@ -84,9 +84,9 @@ In this task, you will use the Azure Portal to provision an R Server on HDInsigh
 
     * **Default container**: Set to the *name of your cluster*
 
-    * **Additional storage accounts**: Leave unconfigured.
+    * **Additional storage accounts**: Leave un-configured.
 
-    * **Data Lake Store access**: Leave unconfigured.
+    * **Data Lake Store access**: Leave un-configured.
 
     * **Metastore Settings**: Leave blank.
 
