@@ -40,10 +40,13 @@ In this task, you will run an Azure Resource Manager (ARM) template to provision
     * **Location**: Select the region you would like to use for resources in this hands-on lab. Remember this location so you can use it for the other resources you'll provision throughout this lab
     * **Resource Name Suffix**: Enter a unique suffix, such as your initials or Microsoft alias, to use for uniquely naming resources created by the ARM template
     * Leave the default values for the remaining resources, but note the values for later reference:
-        * **Cluster Login User Name**: admin
-        * **SSH User Name**: remoteuser
+        * **Cluster Login Username**: admin
+        * **SSH Username**: remoteuser
         * **Virtual Machine Username**: demouser
         * **ML Virtual Machine Username**: radmin
+        * **Database Username**: demouser
+        * **Database Name**: vending
+        * **Database Server Name**: vendingmachines
         * All usernames use the password **Password.1!!**
 
         ![The Custom Deployment blade is displayed in the Azure portal, with the values specified above entered into the appropriate fields.](media/create-resources-template-deployment.png "Template deployment")

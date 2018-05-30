@@ -114,6 +114,7 @@
         "clusterKind": "RSERVER",
         "clusterWorkerNodeCount": 2,
         "clusterVersion": "3.6",
+        "databaseServerNameUnique": "[concat(parameters('databaseServerName'), variables('cleanSuffix'))]",
         "storageAccountName": "[concat('labstorage', variables('cleanSuffix'))]",
         "storageAccountType": "Standard_LRS",
         "photoStorageAccountName": "[concat('photostorage', variables('cleanSuffix'))]",
@@ -571,7 +572,7 @@
         {
             "apiVersion": "2015-05-01-preview",
             "location": "[resourceGroup().location]",
-            "name": "[parameters('databaseServerName')]",
+            "name": "[parameters('databaseServerNameUnique')]",
             "properties": {
                 "administratorLogin": "[parameters('databaseUsername')]",
                 "administratorLoginPassword": "[parameters('databsePassword')]",
@@ -581,7 +582,7 @@
                 {
                     "apiVersion": "2017-10-01-preview",
                     "dependsOn": [
-                        "[concat('Microsoft.Sql/servers/', parameters('databaseServerName'))]"
+                        "[concat('Microsoft.Sql/servers/', parameters('databaseServerNameUnique'))]"
                     ],
                     "location": "[resourceGroup().location]",
                     "name": "[parameters('databaseName')]",
@@ -601,7 +602,7 @@
                 {
                     "apiVersion": "2014-04-01-preview",
                     "dependsOn": [
-                        "[concat('Microsoft.Sql/servers/', parameters('databaseServerName'))]"
+                        "[concat('Microsoft.Sql/servers/', parameters('databaseServerNameUnique'))]"
                     ],
                     "location": "[resourceGroup().location]",
                     "name": "AllowAllWindowsAzureIps",
