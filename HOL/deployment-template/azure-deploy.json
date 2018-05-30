@@ -40,7 +40,7 @@
             "defaultValue": "LabVM",
             "type": "string",
             "metadata": {
-                "description": "Name to assin to the lab virtual machine"
+                "description": "Name to assign to the lab virtual machine"
             }
         },
         "virtualMachineUsername": {
@@ -51,6 +51,27 @@
             }
         },
         "virtualMachinePassword": {
+            "defaultValue": "Password.1!!",
+            "type": "securestring",
+            "metadata": {
+                "description": "(Default value is Password.1!!) The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+            }
+        },
+        "mlVirtualMachineName": {
+            "defaultValue": "LabMLServer",
+            "type": "string",
+            "metadata": {
+                "description": "Name to assign to the lab Machine Learning Server virtual machine"
+            }
+        },
+        "mlVirtualMachineUsername": {
+            "defaultValue": "radmin",
+            "type": "string",
+            "metadata": {
+                "description": "User name used to log into the VM"
+            }
+        },
+        "mlVirtualMachinePassword": {
             "defaultValue": "Password.1!!",
             "type": "securestring",
             "metadata": {
@@ -69,15 +90,19 @@
         "storageAccountType": "Standard_LRS",
         "photoStorageAccountName": "[concat('photostorage', variables('cleanSuffix'))]",
         "virtualMachineSize": "Standard_D2s_v3",
+        "mlVirtualMachineSize": "Standard_E2s_v3",
         "virtualNetworkName": "[concat(resourceGroup().name, '-vnet')]",
         "networkInterfaceName": "[concat(toLower(parameters('virtualMachineName')), 'nic')]",
+        "mlServerNetworkInterfaceName": "[concat(toLower(parameters('mlVirtualMachineName')), 'nic')]",
         "networkSecurityGroupName": "[concat(parameters('virtualMachineName'), '-nsg')]",
+        "mlServerNetworkSecurityGroupName": "[concat(parameters('mlVirtualMachineName'), '-nsg')]",
         "diagnosticsStorageAccountName": "[concat(variables('cleanResourceGroupName'), 'diag')]",
-        "diagnosticsStorageAccountId": "[concat('Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
+        "mlServerDiagnosticsStorageAccountName": "[concat(variables('cleanResourceGroupName'), 'mldiag')]",
         "addressPrefix": "10.0.1.0/24",
         "subnetName": "default",
         "subnetPrefix": "10.0.1.0/24",
-        "publicIpAddressName": "[concat(parameters('virtualMachineName'), '-ip')",
+        "publicIpAddressName": "[concat(parameters('virtualMachineName'), '-ip')]",
+        "mlServerPublicIpAddressName": "[concat(parameters('mlVirtualMachineName'), '-ip')]",
         "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
         "virtualMachineConfigScriptFolder": ".",
@@ -265,7 +290,7 @@
                 "location": "[resourceGroup().location]",
                 "apiVersion": "2017-12-01",
                 "dependsOn": [
-                  "[resourceId('Microsoft.Compute/virtualMachines', variables('virtualMachineName'))]"
+                  "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
                  ],
                 "tags": {
                   "displayName": "Configure LabVM Applications"
@@ -375,6 +400,141 @@
                             "sourcePortRange": "*",
                             "destinationAddressPrefix": "*",
                             "destinationPortRange": "3389"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[parameters('mlVirtualMachineName')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2017-03-30",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkInterfaces/', variables('mlServerNetworkInterfaceName'))]",
+                "[concat('Microsoft.Storage/storageAccounts/', variables('mlServerDiagnosticsStorageAccountName'))]"
+            ],
+            "properties": {
+                "osProfile": {
+                    "computerName": "[parameters('mlVirtualMachineName')]",
+                    "adminUsername": "[parameters('mlVirtualMachineUsername')]",
+                    "adminPassword": "[parameters('mlVirtualMachinePassword')]"
+                },
+                "hardwareProfile": {
+                    "vmSize": "[variables('mlVirtualMachineSize')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftRServer",
+                        "offer": "MLServer-Ubuntu",
+                        "sku": "Enterprise",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "createOption": "fromImage",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('mlServerNetworkInterfaceName'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[reference(resourceId(resourceGroup().name, 'Microsoft.Storage/storageAccounts', variables('mlServerDiagnosticsStorageAccountName')), '2015-06-15').primaryEndpoints['blob']]"
+                    }
+                }
+            }
+        },
+        {
+            "name": "[variables('mlServerDiagnosticsStorageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2015-06-15",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "accountType": "[variables('storageAccountType')]"
+            }
+        },
+        {
+            "name": "[variables('mlServerNetworkInterfaceName')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2016-09-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+                "[concat('Microsoft.Network/publicIpAddresses/', variables('mlServerPublicIpAddressName'))]",
+                "[concat('Microsoft.Network/networkSecurityGroups/', variables('mlServerNetworkSecurityGroupName'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[variables('subnetRef')]"
+                            },
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIpAddress": {
+                                "id": "[resourceId(resourceGroup().name,'Microsoft.Network/publicIpAddresses', variables('mlServerPublicIpAddressName'))]"
+                            }
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('mlServerNetworkSecurityGroupName'))]"
+                }
+            }
+        },
+        {
+            "name": "[variables('mlServerPublicIpAddressName')]",
+            "type": "Microsoft.Network/publicIpAddresses",
+            "apiVersion": "2017-08-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publicIpAllocationMethod": "Dynamic"
+            },
+            "sku": {
+                "name": "Basic"
+            }
+        },
+        {
+            "name": "[variables('mlServerNetworkSecurityGroupName')]",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2017-06-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "Port_12800",
+                        "properties": {
+                            "priority": 100,
+                            "protocol": "*",
+                            "access": "Allow",
+                            "direction": "Inbound",
+                            "sourceAddressPrefix": "*",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "12800"
+                        }
+                    },
+                    {
+                        "name": "default-allow-ssh",
+                        "properties": {
+                            "priority": 1000,
+                            "protocol": "TCP",
+                            "access": "Allow",
+                            "direction": "Inbound",
+                            "sourceAddressPrefix": "*",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "22"
                         }
                     }
                 ]
