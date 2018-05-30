@@ -21,10 +21,11 @@ In this task, you will run an Azure Resource Manager (ARM) template to provision
 * Windows Server 2016 (x64) virtual machine with the following software installed:
   * Visual Studio Community 2017
   * Power BI Desktop
-  * Windows Subsystem for Linux (WSL)
+  * Git Bash
   * R Tools for Visual Studio 2017 (RTVS)
 * Microsoft Machine Learning Server on Linux
 * Azure storage account for storing photos
+* Azure SQL Database
 
 > Note: If you want to review the steps for manually creating the resources provisioned by the ARM template, see [Appendix A](./appendix.md).
 
