@@ -8,7 +8,7 @@
                 "description": "Unique suffix, such as your initials or Microsoft alias, to use for uniquely naming resources created by this ARM template."
             }
         },
-        "clusterLoginUserName": {
+        "clusterLoginUsername": {
             "type": "string",
             "defaultValue": "admin",
             "metadata": {
@@ -22,7 +22,7 @@
                 "description": "(Default value is Password.1!!) The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
             }
         },
-        "sshUserName": {
+        "sshUsername": {
             "type": "string",
             "defaultValue": "remoteuser",
             "metadata": {
@@ -72,6 +72,34 @@
             }
         },
         "mlVirtualMachinePassword": {
+            "defaultValue": "Password.1!!",
+            "type": "securestring",
+            "metadata": {
+                "description": "(Default value is Password.1!!) The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+            }
+        },
+        "databaseName": {
+            "defaultValue": "vending",
+            "type": "string",
+            "metadata": {
+                "description": "Name to assign to the SQL database"
+            }
+        },
+        "databaseServerName": {
+            "defaultValue": "vendingmachines",
+            "type": "string",
+            "metadata": {
+                "description": "Name to assign to the SQL Server. Name will have resourceSuffix added to it for uniqueness."
+            }
+        },
+        "databaseUsername": {
+            "defaultValue": "demouser",
+            "type": "string",
+            "metadata": {
+                "description": "User name used to log into the VM"
+            }
+        },
+        "databasePassword": {
             "defaultValue": "Password.1!!",
             "type": "securestring",
             "metadata": {
@@ -127,7 +155,7 @@
                     "configurations": {
                         "gateway": {
                             "restAuthCredential.isEnabled": true,
-                            "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+                            "restAuthCredential.username": "[parameters('clusterLoginUsername')]",
                             "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
                         },
                         "rserver": {
@@ -156,7 +184,7 @@
                             },
                             "osProfile": {
                                 "linuxOperatingSystemProfile": {
-                                    "username": "[parameters('sshUserName')]",
+                                    "username": "[parameters('sshUsername')]",
                                     "password": "[parameters('sshPassword')]"
                                 }
                             },
@@ -172,7 +200,7 @@
                             },
                             "osProfile": {
                                 "linuxOperatingSystemProfile": {
-                                    "username": "[parameters('sshUserName')]",
+                                    "username": "[parameters('sshUsername')]",
                                     "password": "[parameters('sshPassword')]"
                                 }
                             },
@@ -188,7 +216,7 @@
                             },
                             "osProfile": {
                                 "linuxOperatingSystemProfile": {
-                                    "username": "[parameters('sshUserName')]",
+                                    "username": "[parameters('sshUsername')]",
                                     "password": "[parameters('sshPassword')]"
                                 }
                             },
@@ -204,7 +232,7 @@
                             },
                             "osProfile": {
                                 "linuxOperatingSystemProfile": {
-                                    "username": "[parameters('sshUserName')]",
+                                    "username": "[parameters('sshUsername')]",
                                     "password": "[parameters('sshPassword')]"
                                 }
                             },
@@ -539,6 +567,52 @@
                     }
                 ]
             }
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "location": "[resourceGroup().location]",
+            "name": "[parameters('databaseServerName')]",
+            "properties": {
+                "administratorLogin": "[parameters('databaseUsername')]",
+                "administratorLoginPassword": "[parameters('databsePassword')]",
+                "version": "12.0"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2017-10-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('databaseServerName'))]"
+                    ],
+                    "location": "[resourceGroup().location]",
+                    "name": "[parameters('databaseName')]",
+                    "properties": {
+                        "collation": "SQL_Latin1_General_CP1_CI_AS",
+                        "maxSizeBytes": 268435456000,
+                        "sampleName": "",
+                        "zoneRedundant": false,
+                        "licenseType": ""
+                    },
+                    "sku": {
+                        "name": "S0",
+                        "tier": "Standard"
+                    },
+                    "type": "databases"
+                },
+                {
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('databaseServerName'))]"
+                    ],
+                    "location": "[resourceGroup().location]",
+                    "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "endIpAddress": "0.0.0.0",
+                        "startIpAddress": "0.0.0.0"
+                    },
+                    "type": "firewallrules"
+                }
+            ],
+            "type": "Microsoft.Sql/servers"
         }
     ]
 }
