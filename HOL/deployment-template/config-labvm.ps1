@@ -13,7 +13,13 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object
 
 #Assign Packages to Install
 $Packages = 'googlechrome',`
-            'powerbi'
+            'powerbi',`
+            'visualstudio2017community',`
+            'visualstudio2017-workload-azure',`
+            'visualstudio2017-workload-manageddesktop',`
+            'visualstudio2017-workload-netweb',`
+            'visualstudio2017-workload-data',`
+            'dotnetcore-sdk'
 
 #Install Packages
 ForEach ($PackageName in $Packages)
