@@ -206,7 +206,7 @@ In this task, you will perform some configuration on the Machine Learning Server
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the Overview blade of the LabMLServer VM, select **Connect**, and copy the SSH command.
 
-    ![Connect to virtual machine blade, with the SSH command highlighted.](media/azure-machine-learning-server-connect.png "Connect to virtual machine via SSH")
+    ![Connect to virtual machine blade, with the SSH command highlighted.](media/machine-learning-server-connect.png "Connect to virtual machine via SSH")
 
 2. On your Lab VM, open a new Git Bash window, and paste the SSH connection command you copied in the previous step. For example: `ssh radmin@40.70.129.190`
 

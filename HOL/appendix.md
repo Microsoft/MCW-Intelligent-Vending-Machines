@@ -368,9 +368,9 @@ In these steps, you will provision a SQL database to support the transactions an
 
     * **Want to use SQL elastic pool**: Choose Not now
 
-    * **Pricing tier**: Leave set to **Standard S0**, and select **Apply**.
+    * **Pricing tier**: Change to **Premium P1**, and select **Apply**.
 
-        ![The Configure Pricing tier blade for SQL Database is displayed, and Standard S0, 10 DTUs, 250 GB is selected.](media/sql-database-pricing-tier.png "SQL Database Pricing tier")
+        ![The Configure Pricing tier blade for SQL Database is displayed, and Premium P1, 125 DTUs, 250 GB is selected.](media/sql-database-pricing-tier.png "SQL Database Pricing tier")
 
     * **Collation**: Leave set to the default value (SQL_Latin1_General_CP1_CI_AS)
 

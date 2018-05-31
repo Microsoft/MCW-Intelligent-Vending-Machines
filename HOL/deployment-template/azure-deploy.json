@@ -594,8 +594,8 @@
                         "licenseType": ""
                     },
                     "sku": {
-                        "name": "S0",
-                        "tier": "Standard"
+                        "name": "P1",
+                        "tier": "Premium"
                     },
                     "type": "databases"
                 },
