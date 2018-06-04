@@ -134,9 +134,15 @@ In this task, you will confirm that R Tools for Visual Studio 2017 (RTVS) was su
 
 Trey Research has provided a starter solution for you. They have asked you to use this as the starting point for creating the Vending Machines solution in Azure.
 
-1. From your LabVM, download the starter project from [here](http://bit.ly/2w6t2qz).
+1. From your LabVM, download the starter project by downloading a .zip copy of the Intelligent vending machines GitHub repo.
 
-2. Unzip the contents to the folder **C:\\VendingMachines\\.**
+2. In a web browser, navigate to the [Intelligent Vending Machines MCW repo](https://github.com/Microsoft/MCW-Intelligent-Vending-Machines).
+
+3. On the repo page, select **Clone or download**, then select **Download ZIP**.
+
+    ![Download .zip containing the Intelligent vending machines repository](media/git-hub-download-repo.png "Download ZIP")
+
+4. Unzip the contents to the folder **C:\\VendingMachines\\.**
 
 ## Task 5: Set up Photos Storage account containers
 

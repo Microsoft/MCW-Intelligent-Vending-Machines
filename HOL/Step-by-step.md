@@ -48,7 +48,7 @@ In this exercise, you will create a machine learning model that predicts the pur
 
 ### Task 1: Create a model locally
 
-1. On your Lab VM, locate the starter project solution file, `VendingMachines.sln`, in the C:\\VendingMachines folder and double-click it to open it with Visual Studio 2017.
+1. On your Lab VM, locate the starter project solution file, `VendingMachines.sln`, in the C:\\VendingMachines\\HOL\starter-project folder and double-click it to open it with Visual Studio 2017.
 
 2. If prompted, select Visual Studio 2017 from the Microsoft Visual Studio Version Selector.
 
@@ -95,7 +95,7 @@ In this exercise, you will create a machine learning model that predicts the pur
 
 13. Highlight the **save line**, and select **Execute In Interactive**.
 
-14. Open File Explorer and navigate to the location of the **PricingModel** (C:\\VendingMachines\\VendingMachines - Clean\\PricingModel) project on disk. You should see the file `sampleData.RData` on disk.
+14. Open File Explorer and navigate to the location of the **PricingModel** (C:\\VendingMachines\\HOL\\starter-project\\PricingModel) project on disk. You should see the file `sampleData.RData` on disk.
 
     ![Screenshot of File Explorer, with sampleData.RData selected, and the pop-up listing the Type (R Workspace), Size (2.85 KB), and Data/time modified.](./media/file-explorer-sampledata-rdata.png "File Explorer, sampleData.RData")
 
@@ -581,7 +581,7 @@ To provision access to the Face API (which provides demographic information abou
 
     ![The Vending Machine Simulator displays the ad for coconut water for $1.25.](./media/simulator-app-coconut-water.png "Vending Machine Simulator")
 
-8. In the dialog that appears, navigate to the images folder under **C:\\VendingMachines\\VendingMachines - Clean\\Simulator\\images\\photos**, and pick the photo of either the man or woman to upload, and select Open.
+8. In the dialog that appears, navigate to the images folder under **C:\\VendingMachines\\HOL\\starter-project\\Simulator\\images\\photos**, and pick the photo of either the man or woman to upload, and select Open.
 
     ![Screenshot of Open window, expanded to the photos folder where two images display: female.jpeg, and male.jpeg.](./media/file-explorer-photos.png "Photos folder")
 

@@ -50,6 +50,7 @@ In this exercise, you will create a machine learning model that predicts the pur
 
 #### Tasks to complete
 
+* On your Lab VM, locate the starter project solution file, VendingMachines.sln, in the C:\VendingMachines\HOL\starter-project folder and double-click it to open it with Visual Studio 2017.
 * In Visual Studio, open `TrainModel.r` located within the PricingModel project.
 * Run the text between the "Create Sample Data" and "END Create Sample Data" comments, and view the sampleData created in the Variable Explorer window.
 * Complete TODOs 1 through 4.
