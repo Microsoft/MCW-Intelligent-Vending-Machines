@@ -13,7 +13,7 @@ Trey Research Inc. looks at the old way of doing things in retail and introduces
 
 ### Workshop
 
-In this workshop, you will explore an IoT solution for intelligent vending machines, leveraging facial feature recognition and Azure Machine Learning, to gain a better understanding of building cloud-based machine learning apps and real-time analytics with SQL Database in-memory and columnar indexing. By participating in the Whiteboard Design Session, you will 
+In this workshop, you will explore an IoT solution for intelligent vending machines, leveraging facial feature recognition and Azure Machine Learning, to gain a better understanding of building cloud-based machine learning apps and real-time analytics with SQL Database in-memory and columnar indexing. By participating in the Whiteboard Design Session, you will
 
 ### Whiteboard design session
 

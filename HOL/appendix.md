@@ -26,7 +26,7 @@ In this task, you will create an Azure resource group for the resources used thr
 
     * **Resource group location**: Select the region you would like to use for resources in this hands-on lab. Remember this location so you can use it for the other resources you'll provision throughout this lab.
 
-        ![Add Resource group Resource groups is highlighted in the navigation pane of the Azure portal, +Add is highlighted in the Resource groups blade, and "hands-on-labs" is entered into the Resource group name box on the Create an empty resource group blade.](media/create-resource-group.png "Create resource group")
+        ![Add Resource group Resource groups is highlighted in the navigation pane of the Azure portal, +Add is highlighted in the Resource groups blade, and "hands-on-labs" is entered into the Resource group name box on the Create an empty resource group blade.](./media/create-resource-group.png "Create resource group")
 
     * Select **Create**.
 
@@ -34,13 +34,11 @@ In this task, you will create an Azure resource group for the resources used thr
 
 In this task, you will use the Azure Portal to provision an R Server on HDInsight with Spark cluster.
 
-1. Open a browser and navigate to the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), select **+Create a resource**, enter "hdinsight" into the Search the Marketplace box,select **HDInsight** in the results, and select **Create**.
 
-2. Select **+Create a resource**, enter "hdinsight" into the Search the Marketplace box,select **HDInsight** in the results, and select **Create**.
+    ![In the Azure navigation pane, +Create a resource is selected. In the Everything blade, "hdinsight" is entered into the Search the Marketplace box, and HDInsight is selected in the results.](./media/create-resource-hdinsight.png "Create HDInsight cluster")
 
-    ![In the Azure navigation pane, +Create a resource is selected. In the Everything blade, "hdinsight" is entered into the Search the Marketplace box, and HDInsight is selected in the results.](media/create-resource-hdinsight.png "Create HDInsight cluster")
-
-3. On the Basics blade, enter the following settings:
+2. On the Basics blade, enter the following settings:
 
     * **Cluster name**: Enter a unique name (verified by the green checkmark)
 
@@ -70,11 +68,11 @@ In this task, you will use the Azure Portal to provision an R Server on HDInsigh
 
     * **Location**: Select the location you are using for resources in this hands-on lab
 
-        ![Screenshot of the Basics blade, with fields set to the previously mentioned settings.](media/hdinsight-basics-blade.png "HDInsight Basics blade")
+        ![Screenshot of the Basics blade, with fields set to the previously mentioned settings.](./media/hdinsight-basics-blade.png "HDInsight Basics blade")
 
     * Select **Next** to move on to the storage settings
 
-4. On the Storage blade:
+3. On the Storage blade:
 
     * **Primary storage type**: Leave set to Azure Storage
 
@@ -90,15 +88,15 @@ In this task, you will use the Azure Portal to provision an R Server on HDInsigh
 
     * **Metastore Settings**: Leave blank.
 
-        ![Screenshot of the Storage blade, with fields set to the previously mentioned settings.](media/hdinsight-storage-blade.png "Storage blade")
+        ![Screenshot of the Storage blade, with fields set to the previously mentioned settings.](./media/hdinsight-storage-blade.png "Storage blade")
 
     * Select **Next** to move on to the Cluster summary.
 
-5. On the Cluster Summary blade, select Edit next to Cluster Size.
+4. On the Cluster Summary blade, select Edit next to Cluster Size.
 
     ![Screenshot of the Edit Cluster size link.](./media/hdinsight-cluster-size-edit.png "Edit Cluster size link")
 
-6. On the Cluster size blade, enter the following:
+5. On the Cluster size blade, enter the following:
 
     * **Number of worker nodes**: Enter 2
 
@@ -110,21 +108,21 @@ In this task, you will use the Azure Portal to provision an R Server on HDInsigh
 
     * **R-Server edge node size**: Select D12 v2, then select Select
 
-        ![Screenshot of the Cluster size blade, with fields set to the previously mentioned settings.](media/hdinsight-cluster-size-blade.png "Cluster size blade")
+        ![Screenshot of the Cluster size blade, with fields set to the previously mentioned settings.](./media/hdinsight-cluster-size-blade.png "Cluster size blade")
 
     * Select **Next**.
 
-7. Select **Next** on the Advanced settings blade to move to the Cluster summary blade.
+6. Select **Next** on the Advanced settings blade to move to the Cluster summary blade.
 
-8. Select **Create** on the Cluster summary blade to create the cluster.
+7. Select **Create** on the Cluster summary blade to create the cluster.
 
-9. It will take approximately 20 minutes to create you cluster. You can move on to the steps below while the cluster is provisioning.
+8. It will take approximately 20 minutes to create you cluster. You can move on to the steps below while the cluster is provisioning.
 
 ## Task 3: Setup a lab virtual machine
 
 1. In the [Azure portal](https://portal.azure.com/), select **+Create a resource**, enter "visual studio community" into the Search the Marketplace box, select **Visual Studio Community 2017 (latest release) on Windows Server 2016 (x64)** from the results, and select **Create**.
 
-    ![+Create a resource is selected in the Azure navigation pane, and "visual studio community" is entered into the Search the Marketplace box. Visual Studio Community 2017 (latest release) on Windows Server 2016 (x64) is selected in the results.](media/create-resource-visual-studio-on-windows-server-2016.png "Create Windows Server 2016 with Visual Studio Community 2017")
+    ![+Create a resource is selected in the Azure navigation pane, and "visual studio community" is entered into the Search the Marketplace box. Visual Studio Community 2017 (latest release) on Windows Server 2016 (x64) is selected in the results.](./media/create-resource-visual-studio-on-windows-server-2016.png "Create Windows Server 2016 with Visual Studio Community 2017")
 
 2. Set the following configuration on the Basics tab.
 
@@ -142,13 +140,13 @@ In this task, you will use the Azure Portal to provision an R Server on HDInsigh
 
     * **Location**: Select the location you are using for resources in this hands-on lab
 
-        ![Screenshot of the Basics blade, with fields set to the previously mentioned settings.](media/virtual-machine-basics-blade.png "Create virtual machine Basics blade")
+        ![Screenshot of the Basics blade, with fields set to the previously mentioned settings.](./media/virtual-machine-basics-blade.png "Create virtual machine Basics blade")
 
     * Select **OK** to move to the next step.
 
 3. On the Choose a size blade, ensure the Supported disk type is set to SSD, and select View all. This machine won't be doing much heavy lifting, so selecting DS2_V3 Standard is a good baseline option.
 
-    ![On the Choose a size blade, the D2S_V3 Standard size is selected.](media/virtual-machine-choose-a-size-blade.png "Choose a size blade")
+    ![On the Choose a size blade, the D2S_V3 Standard size is selected.](./media/virtual-machine-choose-a-size-blade.png "Choose a size blade")
 
 4. Select **Select** to move on to the Settings blade.
 
@@ -166,7 +164,7 @@ In this task, you will use the Azure Portal to provision an R Server on HDInsigh
 
 3. Select the **Download Free** link in the middle of the page.
 
-    ![Power BI Desktop Download button](media/power-bi-desktop-download.png "Power BI Desktop Download")
+    ![Power BI Desktop Download button](./media/power-bi-desktop-download.png "Power BI Desktop Download")
 
 4. Select the **x64 bit version** of the download, then select **Next**.
 
@@ -200,7 +198,7 @@ In this task, you will download and install the Git Bash SSH client. You will us
 
 1. On your Lab VM, open a web browser and navigate to the [Git Bash download page](https://git-scm.com/downloads) to download the latest version of Git Bash.
 
-    ![Screenshot of the Git Bash download screen, with the Download 12.17.x for Windows button highlighted.](media/git-bash-download.png "Git Bash Download")
+    ![Screenshot of the Git Bash download screen, with the Download 12.17.x for Windows button highlighted.](./media/git-bash-download.png "Git Bash Download")
 
 2. Select the **Download for 2.17.x for Windows** button.
 
@@ -208,11 +206,11 @@ In this task, you will download and install the Git Bash SSH client. You will us
 
 4. On the last screen, select **Install** to complete the installation.
 
-    ![Final screen of the Git Bash install wizard, with the Install button highlighted.](media/git-bash-install.png "Install Git Bash")
+    ![Final screen of the Git Bash install wizard, with the Install button highlighted.](./media/git-bash-install.png "Install Git Bash")
 
 5. When the install is complete, uncheck **View Release Notes**, and select **Finish**.
 
-    ![Completing the Git Bash Setup Wizard, with View Release Notes unchecked, and the Finish button highlighted.](media/git-bash-install-complete.png "Completing the Git Bash Setup Wizard")
+    ![Completing the Git Bash Setup Wizard, with View Release Notes unchecked, and the Finish button highlighted.](./media/git-bash-install-complete.png "Completing the Git Bash Setup Wizard")
 
 ## Task 6: Install R Tools for Visual Studio 2017
 
@@ -220,19 +218,19 @@ In this task, you will install R Tools for Visual Studio 2017 (RTVS).
 
 1. Launch the Visual Studio Installer by select Search on the Windows task bar, entering "visual studio installer" into the search box, and selecting Visual Studio Installer for the results.
 
-    ![In the Windows Search bar, "visual studio installer" is entered, and Visual Studio Installer is highlighted in the search results.](media/windows-search-visual-studio-installer.png "Search for Visual Studio Installer")
+    ![In the Windows Search bar, "visual studio installer" is entered, and Visual Studio Installer is highlighted in the search results.](./media/windows-search-visual-studio-installer.png "Search for Visual Studio Installer")
 
 2. Update the Visual Studio Installer, if prompted.
 
 3. Once the Installer starts, select **More**, then select **Modify**.
 
-    ![The More dropdown is expanded, and the Modify option is highlighted.](media/visual-studio-installer-modify.png)
+    ![The More dropdown is expanded, and the Modify option is highlighted.](./media/visual-studio-installer-modify.png "Modify Visual Studio")
 
     > Note: If the Visual Studio installation is up to date, Modify may appear where the Update button is in the following screenshot. If you wish to update Visual Studio first, select Update. This is not necessary for this hands-on lab, and the operation can take 30 minutes or more to complete.
 
 4. Select the **Data science and analytical applications** workload by checking the box in the upper right corner of the workload, then select **Modify**.
 
-    ![Data science and analytical applications workload in selected in the Visual Studio 2017 Installer modify screen.](media/visual-studio-workloads-data-science.png "Visual Studio 2017 Workloads")
+    ![Data science and analytical applications workload in selected in the Visual Studio 2017 Installer modify screen.](./media/visual-studio-workloads-data-science.png "Visual Studio 2017 Workloads")
 
 ## Task 7: Create Storage Account
 
@@ -240,7 +238,7 @@ In these steps, you will provision a storage account that will be used for stori
 
 1. Using the Azure Portal, select **Create a resource**, **Storage**, select **Storage account** from the results, and select **Create**.
 
-    ![In the Azure portal, +Create a resource is highlighted in the navigation pane, "storage account" is entered into the Search the Marketplace box, and Storage account - blob, file, table, queue is highlighted in the search results.](media/create-resource-storage-account.png "Create Storage Account")
+    ![In the Azure portal, +Create a resource is highlighted in the navigation pane, "storage account" is entered into the Search the Marketplace box, and Storage account - blob, file, table, queue is highlighted in the search results.](./media/create-resource-storage-account.png "Create Storage Account")
 
 2. On the Create storage account blade, enter the following values:
 
@@ -264,7 +262,7 @@ In these steps, you will provision a storage account that will be used for stori
 
     * **Virtual networks**: Leave set to Disabled
 
-        ![The Create storage account blade is displayed, with the values specified above entered into the appropriate fields.](media/storage-account-create.png "Create storage account")
+        ![The Create storage account blade is displayed, with the values specified above entered into the appropriate fields.](./media/storage-account-create.png "Create storage account")
 
     * Select **Create**
 
@@ -274,7 +272,7 @@ In these steps, you will provision and configure a Virtual Machine running Micro
 
 1. In the [Azure Portal](https://portal.azure.com), select **+Create a resource**, enter **Machine Learning Server** into the Search the Marketplace box, select **Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04** from the results, and select **Create**.
 
-    ![In the Azure portal, +Create a resource is highlighted in the navigation pane, "machine learning server" is entered into the Search the Marketplace box, and Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04 is highlighted it the results.](media/create-resource-machine-learning-server.png "Create Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04")
+    ![In the Azure portal, +Create a resource is highlighted in the navigation pane, "machine learning server" is entered into the Search the Marketplace box, and Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04 is highlighted it the results.](./media/create-resource-machine-learning-server.png "Create Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04")
 
 2. In the Create virtual machine Basics blade, enter the following:
 
@@ -294,13 +292,13 @@ In these steps, you will provision and configure a Virtual Machine running Micro
 
     * **Location**: Select the location you are using for this hands-on lab
 
-        ![Screenshot of the Basics blade, with fields set to the previously mentioned values.](media/machine-learning-server-basics-blade.png "Machine Learning Server Basics blade")
+        ![Screenshot of the Basics blade, with fields set to the previously mentioned values.](./media/machine-learning-server-basics-blade.png "Machine Learning Server Basics blade")
 
     * Select **OK** to move on to choosing a VM size.
 
 3. On the Choose a size blade, select **E2S_V3 Standard**, and select **Select**.
 
-    ![Screenshot of the Choose a size blade, with E2S_V3 Standard selected.](media/machine-learning-server-choose-a-size-blade.png "Machine Learning Server Choose a size blade")
+    ![Screenshot of the Choose a size blade, with E2S_V3 Standard selected.](./media/machine-learning-server-choose-a-size-blade.png "Machine Learning Server Choose a size blade")
 
 4. On the Settings blade, select **Network security group** (firewall).
 
@@ -332,7 +330,7 @@ In these steps, you will provision and configure a Virtual Machine running Micro
 
 7. Select Create on the Summary blade.
 
-    ![The Create virtual machine Summary blade is displayed. A message that Validation passed is displayed at the top of the Create blade.](media/machine-learning-server-summary-blade.png "Create Machine Learning Server")
+    ![The Create virtual machine Summary blade is displayed. A message that Validation passed is displayed at the top of the Create blade.](./media/machine-learning-server-summary-blade.png "Create Machine Learning Server")
 
 ## Task 9: Provision SQL Database
 
@@ -340,7 +338,7 @@ In these steps, you will provision a SQL database to support the transactions an
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**, enter "sql database" into the Search the Marketplace box, select **SQL Database** from the results, and select **Create**.
 
-    ![In the navigation pane of the Azure portal, +Create a resource is highlighted, "sql database" is entered into the Search the Marketplace box, and SQL Database is highlighted in the search results.](media/create-resource-sql-database.png "Create SQL Database")
+    ![In the navigation pane of the Azure portal, +Create a resource is highlighted, "sql database" is entered into the Search the Marketplace box, and SQL Database is highlighted in the search results.](./media/create-resource-sql-database.png "Create SQL Database")
 
 2. In the SQL Database blade, enter the following:
 
@@ -362,7 +360,7 @@ In these steps, you will provision a SQL database to support the transactions an
 
         * **Location**: Select the location you are using for this hands-on lab
 
-            ![On the SQL Database New server blade, the values specified above are entered into the appropriate fields.](media/sql-database-new-server-blade.png "SQL Database New Server")
+            ![On the SQL Database New server blade, the values specified above are entered into the appropriate fields.](./media/sql-database-new-server-blade.png "SQL Database New Server")
 
         * Select **Select**
 
@@ -370,10 +368,10 @@ In these steps, you will provision a SQL database to support the transactions an
 
     * **Pricing tier**: Change to **Premium P1**, and select **Apply**.
 
-        ![The Configure Pricing tier blade for SQL Database is displayed, and Premium P1, 125 DTUs, 250 GB is selected.](media/sql-database-pricing-tier.png "SQL Database Pricing tier")
+        ![The Configure Pricing tier blade for SQL Database is displayed, and Premium P1, 125 DTUs, 250 GB is selected.](./media/sql-database-pricing-tier.png "SQL Database Pricing tier")
 
     * **Collation**: Leave set to the default value (SQL_Latin1_General_CP1_CI_AS)
 
-        ![The SQL Database Create blade is displayed, and the values specified above are entered into the appropriate fields.](media/sql-database-create.png "SQL Database Create")
+        ![The SQL Database Create blade is displayed, and the values specified above are entered into the appropriate fields.](./media/sql-database-create.png "SQL Database Create")
 
     * Select **Create**.
