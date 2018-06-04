@@ -136,7 +136,7 @@
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
         "virtualMachineConfigScriptFolder": ".",
         "virtualMachineConfigScriptFileName": "config-labvm.ps1",
-        "virtualMachineConfigScriptUrl": "https://raw.githubusercontent.com/kylebunting/MCW-Intelligent-Vending-Machines/update-may-2018/HOL/deployment-template/config-labvm.ps1"
+        "virtualMachineConfigScriptUrl": "https://raw.githubusercontent.com/Microsoft/MCW-Intelligent-Vending-Machines/master/HOL/deployment-template/config-labvm.ps1"
     },
     "resources": [
         {
