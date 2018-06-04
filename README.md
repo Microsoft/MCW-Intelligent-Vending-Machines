@@ -36,11 +36,8 @@ In this hands-on lab, you will implement an IoT solution for intelligent vending
 * R Server cluster on HDInsight
 * R Tools for Visual Studio 2017
 * Visual Studio 2017
-* Windows Subsystem for Linux (WSL)
 
 ## Azure Solution
-
-Download the [Vending Machines](http://bit.ly/2w6t2qz) starter project.
 
 ## Related References
 

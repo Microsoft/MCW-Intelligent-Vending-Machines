@@ -1,4 +1,4 @@
-![Microsoft Cloud Workshop](./media/ms-cloud-workshop.png "Microsoft Cloud Workshop")
+![Microsoft Cloud Workshop](../media/ms-cloud-workshop.png "Microsoft Cloud Workshop")
 
 [Legal notice](../legal.md)
 

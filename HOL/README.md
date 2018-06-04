@@ -7,6 +7,9 @@ Trey Research Inc. looks at the old way of doing things in retail and introduces
 * [Abstract](#abstract)
 * [Solution architecture](#solution-architecture)
 * [Requirements](#requirements)
+* [Before the Hands-on Lab](#before-the-hands-on-lab)
+* [Hands-on Lab](#hands-on-lab)
+* [After the Hands-on Lab](#after-the-hands-on-lab)
 
 ## Abstract
 
@@ -37,10 +40,12 @@ You should follow all the steps provided in the [Before the Hands-on Lab](./Setu
 
 ## Hands-on Lab
 
-TODO: Need some language here to provide a description of each option below, and when/why they would choose each.
+Select the guide you are using to complete the Hands-on lab below.
 
 * [Step-by-step guide](./Step-by-step.md)
+  * Provides detailed, step-by-step instructions for completing the lab.
 * [Unguided](./Unguided.md)
+  * This guide provides minimal instruction, and assumes a high-level of knowledge about the technologies used in this lab. This should typically only be used if you are doing this as part of a group or hackathon.
 * [Hackaton](./Hack.md)
 
 ## After the Hands-on Lab
